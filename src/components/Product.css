@@ -1,0 +1,30 @@
+.btns {
+  background-color: darkslateblue;
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+}
+.productList {
+  background-image: linear-gradient(0deg, black, red, orange);
+  background-size: 250% 250%;
+  margin: 5px;
+  padding: 5px;
+  animation: gradient 5s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+.topNav {
+  background-color: rgb(139, 30, 218) !important;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
