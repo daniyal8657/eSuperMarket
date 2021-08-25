@@ -1,12 +1,30 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
+import { Card, Row, Col, Button, Form, Nav } from "react-bootstrap";
 import "./Product.css";
 
-export const ProductItem = () => {
+export const ProductItem = ({ item }) => {
   const dispatch = useDispatch();
   return (
-    <Card className="btns">
+    <Card className="prodcard">
+      <Row>
+        <Form.Label
+          style={{
+            background: "#1C1427",
+            color: "#CCFFBD",
+          }}
+        ></Form.Label>
+      </Row>
+      <Row>
+        <Card.Img src={item.image} height="250px" width="150px" />
+        <i>{item.title}</i>
+      </Row>
+      <Row>
+        <p>
+          <b>{item.price} $ </b>
+        </p>
+      </Row>
       <Row>
         <Col>
           <Button
@@ -25,13 +43,27 @@ export const ProductItem = () => {
             onClick={() =>
               dispatch({
                 type: "ADD_PRODUCT",
-                data: ["Santoor Soap", "Tata Namak"],
+                data: [],
               })
             }
           >
             +
           </Button>
         </Col>
+      </Row>
+      <Row>
+        <Link to="/productDetails">
+          <Button
+            onClick={() =>
+              dispatch({
+                type: "SELECTED_PROD_ID",
+                data: item.id[0],
+              })
+            }
+          >
+            View
+          </Button>
+        </Link>
       </Row>
     </Card>
   );
